@@ -216,6 +216,29 @@ std::wstring module_directory() {
     return cut == std::wstring::npos ? std::wstring(L".") : path.substr(0, cut);
 }
 
+// Which of a build's voices the installer laid down.
+//
+// A language is selectable by leaving its packages off the disk, but male and
+// female are not: both are generated here from one language's data, so there
+// is no file to omit. The installer writes voices.ini beside the ROM
+// directories to say which halves the user asked for. Without the file every
+// voice a build offers is offered, which is what a source tree wants.
+struct VoiceFilter {
+    bool male = true;
+    bool female = true;
+};
+
+VoiceFilter voice_filter(const std::wstring& root, const char* build) {
+    VoiceFilter f;
+    std::wstring ini = root + L"\\voices.ini";
+    if (!file_exists(ini)) return f;
+    std::wstring section(build, build + strlen(build));
+    f.male = GetPrivateProfileIntW(section.c_str(), L"Male", 1, ini.c_str()) != 0;
+    f.female =
+        GetPrivateProfileIntW(section.c_str(), L"Female", 1, ini.c_str()) != 0;
+    return f;
+}
+
 std::wstring registry_install_dir() {
     for (HKEY root : {HKEY_LOCAL_MACHINE, HKEY_CURRENT_USER}) {
         for (DWORD view : {KEY_WOW64_64KEY, KEY_WOW64_32KEY}) {
@@ -405,11 +428,21 @@ std::vector<VoiceEntry> enumerate_voices(const std::wstring& root) {
             const char* suffix;
             const char* engine_name;
         };
+        const VoiceFilter filter = voice_filter(root, p.key);
         std::vector<NamedVoice> voices;
-        if (p.named_voices == 0)
-            voices = {{"", ""}};
-        else
-            voices = {{"male", "DefaultMale"}, {"female", "DefaultFemale"}};
+        if (p.named_voices == 0) {
+            // One voice that is neither specifically male nor female, so it
+            // stands unless the user wanted nothing from this build at all.
+            if (filter.male || filter.female) voices = {{"", ""}};
+        } else {
+            if (filter.male) voices.push_back({"male", "DefaultMale"});
+            if (filter.female) voices.push_back({"female", "DefaultFemale"});
+        }
+        if (voices.empty()) {
+            NK_LOG("profile %s: every voice deselected", p.key);
+            ++build_order;
+            continue;
+        }
 
         for (uint32_t lang : langs) {
             int voice_order = 0;

@@ -153,6 +153,30 @@ firmware, registers each DLL with the `regsvr32` of its own architecture, and
 offers a desktop shortcut. 64-bit Windows is required: the 32-bit SAPI engine is
 installed and works, but it reaches the 64-bit host through a pipe.
 
+### Choosing what gets installed
+
+138 voices is a long list to arrow through, so every one of them is selectable
+on the components page. Four presets sit above the tree:
+
+| Preset | What it installs |
+| --- | --- |
+| Everything | all 138 voices from all five phones |
+| English only | every English voice, from each phone that has one |
+| Compact | English (UK) male, from the Nokia 5320 only |
+| Custom | the tree, checked item by item |
+
+The tree is grouped by phone, because a phone's languages are its own — the same
+language from two phones sounds different. Under each phone are its languages,
+and above them, on the phones that offer both, **Male voices** and **Female
+voices**.
+
+This shortens the voice list; it does not shrink the install much. Nearly all of
+a phone's size is its ROM image, which every one of its languages shares, so
+clearing languages saves kilobytes and clearing a whole phone saves tens of
+megabytes. Reinstalling with a different selection is the supported way to
+change your mind: the installer clears the per-language speech data first, so
+languages you deselect really do leave the voice list.
+
 ## The settings utility
 
 `NokiaKlattConfig.exe`, on the desktop and in the Start menu. Everything on it
@@ -221,8 +245,14 @@ src/config/   the settings utility
 src/tools/    nk_render, nk_speak, nk_sapitest
 tools/        Python and PowerShell test harnesses
 samples/      a rendered example of all 138 voices, and INDEX.txt
-installer/    the Inno Setup script
+installer/    the Inno Setup script, and its generated language components
 ```
+
+`installer/rom_languages.iss` is the 99 (phone, language) components and the
+speech packages each one owns. It is generated — after adding or removing a ROM,
+regenerate it with `python tools/gen_rom_components.py`, which reads the
+language names out of `src/nk/catalog.cpp` so the installer and the voice list
+cannot disagree.
 
 ## Verification
 
