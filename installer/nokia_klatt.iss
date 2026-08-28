@@ -4,8 +4,9 @@
 ; two things a generated script does not handle well: a quarter of a gigabyte
 ; of phone firmware to lay down, and two SAPI engines of different
 ; architectures that each have to be registered with the matching regsvr32.
-; The one generated part is rom_languages.iss, which is 99 languages' worth of
-; components and file entries and no place for a hand-made typo.
+; The one generated part is rom_languages.iss, which is the phones, their 99
+; languages and every file those own - no place for a hand-made typo, and no
+; place for the entry order the wizard's tree depends on to drift either.
 ;
 ; Accessibility notes, since the people most likely to install this are
 ; screen reader users:
@@ -30,7 +31,7 @@
 ;   small; deselecting a whole phone is what saves tens of megabytes.
 
 #define AppName "Nokia Klatt SAPI5"
-#define AppVersion "1.1.0"
+#define AppVersion "1.1.1"
 #define AppPublisher "Nokia Klatt SAPI5 project"
 #define AppExeName "NokiaKlattConfig.exe"
 
@@ -90,18 +91,23 @@ Name: "custom"; Description: "Custom: choose phones, languages and voices one by
 [Components]
 Name: "core"; Description: "Speech engines and the settings utility (required)"; Types: full english compact custom; Flags: fixed
 
-; The phones. Each one's languages and voices are the entries under it, in
-; installer\rom_languages.iss; a phone's size here is its ROM image, which all
-; of its languages share, so clearing languages does not shrink these numbers.
 Name: "roms"; Description: "Phone voices"; Types: full english compact custom
-Name: "roms\p5320"; Description: "Nokia 5320 - 33 languages, male and female (67 MB)"; Types: full english compact custom
-Name: "roms\pe65"; Description: "Nokia E65 - 30 languages (19 MB)"; Types: full english custom
-Name: "roms\pn958gb"; Description: "Nokia N95 8GB - 30 languages (58 MB)"; Types: full english custom
-Name: "roms\p6650"; Description: "Nokia 6650 - American English, Canadian French, Brazilian Portuguese, Latin American Spanish (46 MB)"; Types: full english custom
-Name: "roms\pn85"; Description: "Nokia N85 - Tagalog and Vietnamese (42 MB)"; Types: full custom
 
-; The 99 language components and the packages they own, generated from the ROM
+; The five phones, their languages and their voices, generated from the ROM
 ; tree and src\nk\catalog.cpp by tools\gen_rom_components.py.
+;
+; The phones are generated together with their languages rather than being
+; listed here, because the wizard's components list is a tree built from the
+; order of the entries and the depth of each name, not from the names
+; themselves. A phone has to come immediately before the languages that belong
+; to it, and keeping those two halves in step across two files is exactly what
+; went wrong: with all five phones listed here and every language arriving
+; afterwards from the include, all 99 languages became children of the last
+; phone in the list.
+;
+; A phone's size is its ROM image, which all of its languages share, so
+; clearing languages does not shrink it; clearing the phone itself is what
+; saves the tens of megabytes.
 #include "rom_languages.iss"
 
 [Tasks]

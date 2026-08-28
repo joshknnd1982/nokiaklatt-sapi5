@@ -1,5 +1,10 @@
-# Build output
+# Intermediate build output. The CMake trees are machine-specific and full of
+# absolute paths; the binaries they produce are committed under bin/ instead.
 build/
+
+# The compiled installer. It is nearly a hundred megabytes of the same ROMs
+# that are already committed under bin/, and a blob committed once is in every
+# clone forever. It is attached to the release it belongs to instead.
 dist/
 *.obj
 *.pdb
@@ -10,13 +15,16 @@ dist/
 *.suo
 .vs/
 
-# Phone firmware and the Python reference implementation.
+# The phone firmware and the binaries are committed, so a clone is a working
+# copy rather than something that still needs a 250 MB download and a build.
+# Two of the ROM images are over 50 MB; that is a deliberate trade, and it
+# cannot be taken back out without rewriting history.
 #
-# Two of the ROM images are over 50 MB, and firmware committed to git cannot be
-# taken back out without rewriting history. They ship inside the release
-# installer instead; see the "Building from source" section of the README for
-# the layout the build expects here.
-bin/
+# What is not committed is the install-time residue that lands in bin/ when the
+# installer is pointed at it: Inno's own uninstaller, and the voice filter the
+# installer writes to record the male/female choice.
+bin/unins000.*
+bin/roms/voices.ini
 
 # Output of tools/verify_port.py, which re-renders every voice with the C++
 # engine to diff against the Python one.

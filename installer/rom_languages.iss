@@ -10,10 +10,17 @@
 ; being spoken, because builds share banks between languages. They come
 ; to well under a megabyte per phone, so they all come along with the
 ; phone and only the per-language packages are selectable.
+;
+; The phone components are here too, each one directly above the entries
+; that belong to it. The wizard nests its components list by adjacency
+; and depth rather than by name, so a phone and its languages have to be
+; kept together: split them up and the languages become children of
+; whichever phone happens to be listed last.
 
 [Components]
 
 ; ---- Nokia 5320 ----
+Name: "roms\p5320"; Description: "Nokia 5320 - 33 languages, male and female (69 MB)"; Types: compact custom english full
 Name: "roms\p5320\male"; Description: "Male voices"; Types: compact custom english full
 Name: "roms\p5320\female"; Description: "Female voices"; Types: custom english full
 
@@ -52,6 +59,7 @@ Name: "roms\p5320\l401"; Description: "Basque"; Types: custom full
 Name: "roms\p5320\l402"; Description: "Galician"; Types: custom full
 
 ; ---- Nokia E65 ----
+Name: "roms\pe65"; Description: "Nokia E65 - 30 languages (19 MB)"; Types: custom english full
 
 Name: "roms\pe65\l1"; Description: "English (UK)"; Types: custom english full
 Name: "roms\pe65\l2"; Description: "French"; Types: custom full
@@ -85,6 +93,7 @@ Name: "roms\pe65\l79"; Description: "Serbian"; Types: custom full
 Name: "roms\pe65\l93"; Description: "Ukrainian"; Types: custom full
 
 ; ---- Nokia N95 8GB ----
+Name: "roms\pn958gb"; Description: "Nokia N95 8GB - 30 languages (58 MB)"; Types: custom english full
 
 Name: "roms\pn958gb\l1"; Description: "English (UK)"; Types: custom english full
 Name: "roms\pn958gb\l2"; Description: "French"; Types: custom full
@@ -118,6 +127,7 @@ Name: "roms\pn958gb\l79"; Description: "Serbian"; Types: custom full
 Name: "roms\pn958gb\l93"; Description: "Ukrainian"; Types: custom full
 
 ; ---- Nokia 6650 ----
+Name: "roms\p6650"; Description: "Nokia 6650 - English (US), French (Canada), Portuguese (Brazil) and Spanish (Latin America) (45 MB)"; Types: custom english full
 Name: "roms\p6650\male"; Description: "Male voices"; Types: custom english full
 Name: "roms\p6650\female"; Description: "Female voices"; Types: custom english full
 
@@ -127,6 +137,7 @@ Name: "roms\p6650\l76"; Description: "Portuguese (Brazil)"; Types: custom full
 Name: "roms\p6650\l83"; Description: "Spanish (Latin America)"; Types: custom full
 
 ; ---- Nokia N85 ----
+Name: "roms\pn85"; Description: "Nokia N85 - Tagalog and Vietnamese (42 MB)"; Types: custom full
 Name: "roms\pn85\male"; Description: "Male voices"; Types: custom full
 Name: "roms\pn85\female"; Description: "Female voices"; Types: custom full
 

@@ -216,24 +216,35 @@ build_all.bat
 That configures and builds both architectures and then compiles the installer
 into `dist\`. Pass `--no-installer` to stop after the binaries.
 
-**The firmware is not in this repository.** Two of the ROM images are large
-enough to bloat every clone permanently, so they ship only inside the release
-installer. To build a working installer yourself, put the phone dumps under
-`bin\roms\<profile>\`, each holding the ROM image and a `files\` tree with the
-`resource\` and `system\data\` directories from the same firmware:
+**A clone is a working copy.** The phone firmware and the built binaries are
+committed, so nothing has to be downloaded or built before the engine will
+speak. That costs about 250 MB of clone, which is a deliberate trade — and one
+that cannot be undone without rewriting history.
 
 ```
-bin\roms\5320\SYM.ROM        bin\roms\5320\files\resource\...
-bin\roms\e65\SYM.ROM         bin\roms\5320\files\system\data\srsf_*.bin
-bin\roms\n958gb\SYM.ROM
-bin\roms\6650\6650
-bin\roms\n85\SYM.ROM
+bin\NokiaKlattHost.exe       the emulator host
+bin\NokiaKlattSAPI.dll       the 64-bit SAPI engine
+bin\x86\NokiaKlattSAPI.dll   the 32-bit SAPI engine
+bin\NokiaKlattConfig.exe     the settings utility
+bin\unicorn.dll              the emulator, beside the host that loads it
+bin\roms\<profile>\          each phone's ROM image and its files\ tree
+bin\_nokia\lib\unicorn\lib\  the copy of unicorn.dll that the build and the
+                             installer read from
 ```
 
-The engine finds a ROM by content rather than by name, so whatever the dump is
-called is fine. `bin\_nokia\` — the Python reference implementation the C++ core
-was ported from, and its bundled `unicorn.dll` — is likewise not included; the
-Python test harnesses in `tools\` need it, the build does not.
+Each ROM directory holds the ROM image and a `files\` tree with the `resource\`
+and `system\data\` directories from the same firmware. The engine finds a ROM by
+content rather than by name, so whatever the dump is called is fine.
+
+The compiled installer is **not** committed. It is another hundred megabytes of
+the same ROMs, and a blob committed once is in every clone forever, so each one
+is attached to its
+[release](https://github.com/joshknnd1982/nokiaklatt-sapi5/releases) instead.
+`build_all.bat` writes a fresh one to `dist\`.
+
+The rest of `bin\_nokia\` — the Python reference implementation the C++ core was
+ported from — is not included. The Python test harnesses in `tools\` need it;
+the build and the installer need only the `unicorn.dll` beneath it.
 
 ## Layout
 
@@ -248,11 +259,26 @@ samples/      a rendered example of all 138 voices, and INDEX.txt
 installer/    the Inno Setup script, and its generated language components
 ```
 
-`installer/rom_languages.iss` is the 99 (phone, language) components and the
-speech packages each one owns. It is generated — after adding or removing a ROM,
-regenerate it with `python tools/gen_rom_components.py`, which reads the
-language names out of `src/nk/catalog.cpp` so the installer and the voice list
-cannot disagree.
+`installer/rom_languages.iss` is the five phones, their 99 (phone, language)
+components and the speech packages each one owns. It is generated — after adding
+or removing a ROM, regenerate it with `python tools/gen_rom_components.py`, which
+reads the language names out of `src/nk/catalog.cpp` so the installer and the
+voice list cannot disagree.
+
+The phones are generated together with their languages rather than being listed
+in `nokia_klatt.iss`, and that is load-bearing. The wizard's components list is a
+tree, but not one built from the component names: each entry is handed to the
+checkbox control with a depth taken from its name, and the control decides
+parents and children by *adjacency* — an entry's children are the entries that
+follow it until one appears at its own depth or shallower. Splitting the phones
+from their languages across two files put all 99 languages under whichever phone
+came last. It compiled cleanly, because the compiler resolves parents by name;
+it only went wrong in front of the person installing it.
+
+`python tools/check_components.py` is what catches that. It reads both scripts
+the way ISCC does, checks every component nests under its own name, and then
+walks each preset through the wizard's own “this phone would add no voices” rule
+to confirm the components page will let it through.
 
 ## Verification
 

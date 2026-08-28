@@ -1,0 +1,14 @@
+# Everything under bin/ is phone firmware or a compiled binary, and git must
+# not touch a byte of any of it.
+#
+# This is not a tidiness setting. core.autocrlf is on for most Windows clones,
+# and git decides what is text by sniffing the first few kilobytes for a NUL.
+# A ROM image or an .rsc resource can easily open with a stretch that has none,
+# at which point every 0x0A in seventy megabytes of ARM code becomes 0x0D 0x0A
+# on checkout and the clone gets firmware that will not boot - silently, and
+# only for the people who cloned rather than built.
+bin/** binary
+
+# dist/ is ignored rather than committed - the installer is attached to its
+# release instead - but if one is ever forced in, it is not text either.
+dist/** binary

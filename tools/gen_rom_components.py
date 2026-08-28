@@ -9,7 +9,14 @@ elsewhere in the tree, so it reads them rather than repeating them:
   - the language names come from kLanguages in src/nk/catalog.cpp, so the
     installer and the voice list cannot disagree about what language 42 is;
   - which languages a build actually offers is derived from the srsf packages
-    on disk, by the same rule catalog.cpp's candidate_languages() uses.
+    on disk, by the same rule catalog.cpp's candidate_languages() uses;
+  - how big a phone is, by measuring its ROM tree.
+
+The phone components are generated here as well, rather than being written out
+in nokia_klatt.iss, because the wizard builds its components tree out of the
+order the entries appear in and the depth of each name. A phone has to be
+immediately followed by its own languages, which is a property this file can
+guarantee and two files kept in step by hand cannot.
 
 Run it after adding or removing a ROM:
 
@@ -37,6 +44,10 @@ BUILDS = [
     ("6650",   "p6650",   "Nokia 6650",   True),
     ("n85",    "pn85",    "Nokia N85",    True),
 ]
+
+# A phone whose languages are few enough to name is named, rather than counted:
+# "Tagalog and Vietnamese" tells someone deciding more than "2 languages" does.
+NAME_LANGUAGES_UP_TO = 4
 
 # Languages a build has complete packages for and which fault the emulator
 # anyway - Profile::blocked in catalog.cpp. Offering them here would put a
@@ -94,6 +105,34 @@ def escape(text):
     return text.replace('"', '""')
 
 
+def rom_size_mb(build):
+    """How much disk a phone costs, which is very nearly all ROM image.
+
+    Read off the tree rather than written down, so the number in the
+    components list cannot drift away from the dump it describes.
+    """
+    total = 0
+    for dirpath, _, filenames in os.walk(os.path.join(ROMS, build)):
+        for name in filenames:
+            total += os.path.getsize(os.path.join(dirpath, name))
+    return int(round(total / (1024.0 * 1024.0)))
+
+
+def phone_description(short_name, langs, names, has_genders, size_mb):
+    """The one line that has to carry a whole phone's worth of decision."""
+    if len(langs) <= NAME_LANGUAGES_UP_TO:
+        spelled = [names.get(l, "Language %d" % l) for l in langs]
+        if len(spelled) > 1:
+            what = ", ".join(spelled[:-1]) + " and " + spelled[-1]
+        else:
+            what = spelled[0]
+    else:
+        what = "%d languages" % len(langs)
+        if has_genders:
+            what += ", male and female"
+    return "%s - %s (%d MB)" % (short_name, what, size_mb)
+
+
 def main():
     names = language_names()
     out = []
@@ -111,6 +150,12 @@ def main():
     w("; being spoken, because builds share banks between languages. They come")
     w("; to well under a megabyte per phone, so they all come along with the")
     w("; phone and only the per-language packages are selectable.")
+    w(";")
+    w("; The phone components are here too, each one directly above the entries")
+    w("; that belong to it. The wizard nests its components list by adjacency")
+    w("; and depth rather than by name, so a phone and its languages have to be")
+    w("; kept together: split them up and the languages become children of")
+    w("; whichever phone happens to be listed last.")
     w("")
 
     totals = {}
@@ -128,6 +173,25 @@ def main():
         compact = build == "5320"
 
         components.append("; ---- %s ----" % short_name)
+
+        # The phone itself, immediately before the entries that belong to it.
+        # The wizard's components list is a tree built from adjacency and
+        # indent depth, not from the component names: everything that follows
+        # a phone at a deeper level is treated as that phone's child. Emitting
+        # all five phones first and their languages afterwards therefore hung
+        # every language in the package off whichever phone came last, which
+        # is how checking English used to leave the Nokia N85 half-checked and
+        # clearing the N85 used to clear every other phone's languages too.
+        phone_types = ["full", "custom"] + (["english"] if english else [])
+        if compact:
+            phone_types.append("compact")
+        components.append(
+            'Name: "roms\\%s"; Description: "%s"; Types: %s'
+            % (comp,
+               escape(phone_description(short_name, langs, names,
+                                        has_genders, rom_size_mb(build))),
+               " ".join(sorted(phone_types))))
+
         if has_genders:
             male_types = ["full", "custom"] + (["english"] if english else [])
             if compact:
