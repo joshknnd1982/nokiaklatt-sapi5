@@ -1,0 +1,233 @@
+Nokia Klatt - rendered speech samples
+============================================================
+138 of 138 voices rendered, 2026-08-28 09:52:11
+
+A voice is one phone ROM speaking one language. Two phones that speak
+the same language are different builds of the engine and sound
+different, so both are listed. 16 kHz, 16-bit, mono.
+
+Arabic  (language id 37)
+    Nokia 5320     female    3.60s   samples\5320\037-ar-female.wav
+    Nokia 5320     male      4.20s   samples\5320\037-ar-male.wav
+    Nokia E65      default   4.20s   samples\e65\037-ar.wav
+    Nokia N95 8GB  default   4.20s   samples\n958gb\037-ar.wav
+
+Basque  (language id 401)
+    Nokia 5320     female    5.50s   samples\5320\401-eu_ES-female.wav
+    Nokia 5320     male      5.50s   samples\5320\401-eu_ES-male.wav
+
+Bulgarian  (language id 42)
+    Nokia 5320     female    3.85s   samples\5320\042-bg_BG-female.wav
+    Nokia 5320     male      4.40s   samples\5320\042-bg_BG-male.wav
+    Nokia E65      default   4.10s   samples\e65\042-bg_BG.wav
+    Nokia N95 8GB  default   4.10s   samples\n958gb\042-bg_BG.wav
+
+Catalan  (language id 44)
+    Nokia 5320     female    4.20s   samples\5320\044-ca_ES-female.wav
+    Nokia 5320     male      4.20s   samples\5320\044-ca_ES-male.wav
+
+Croatian  (language id 45)
+    Nokia 5320     female    3.90s   samples\5320\045-hr_HR-female.wav
+    Nokia 5320     male      4.45s   samples\5320\045-hr_HR-male.wav
+    Nokia E65      default   4.30s   samples\e65\045-hr_HR.wav
+    Nokia N95 8GB  default   4.30s   samples\n958gb\045-hr_HR.wav
+
+Czech  (language id 25)
+    Nokia 5320     female    4.25s   samples\5320\025-cs_CZ-female.wav
+    Nokia 5320     male      4.25s   samples\5320\025-cs_CZ-male.wav
+    Nokia E65      default   4.25s   samples\e65\025-cs_CZ.wav
+    Nokia N95 8GB  default   4.25s   samples\n958gb\025-cs_CZ.wav
+
+Danish  (language id 7)
+    Nokia 5320     female    3.35s   samples\5320\007-da_DK-female.wav
+    Nokia 5320     male      3.35s   samples\5320\007-da_DK-male.wav
+    Nokia E65      default   3.70s   samples\e65\007-da_DK.wav
+    Nokia N95 8GB  default   3.35s   samples\n958gb\007-da_DK.wav
+
+Dutch  (language id 18)
+    Nokia 5320     female    4.90s   samples\5320\018-nl_NL-female.wav
+    Nokia 5320     male      4.65s   samples\5320\018-nl_NL-male.wav
+    Nokia E65      default   4.55s   samples\e65\018-nl_NL.wav
+    Nokia N95 8GB  default   4.55s   samples\n958gb\018-nl_NL.wav
+
+English (UK)  (language id 1)
+    Nokia 5320     female    4.50s   samples\5320\001-en_GB-female.wav
+    Nokia 5320     male      4.50s   samples\5320\001-en_GB-male.wav
+    Nokia E65      default   4.85s   samples\e65\001-en_GB.wav
+    Nokia N95 8GB  default   4.85s   samples\n958gb\001-en_GB.wav
+
+English (US)  (language id 10)
+    Nokia 6650     female    5.30s   samples\6650\010-en_US-female.wav
+    Nokia 6650     male      4.80s   samples\6650\010-en_US-male.wav
+
+Estonian  (language id 49)
+    Nokia 5320     female    4.75s   samples\5320\049-et_EE-female.wav
+    Nokia 5320     male      4.35s   samples\5320\049-et_EE-male.wav
+    Nokia E65      default   4.35s   samples\e65\049-et_EE.wav
+    Nokia N95 8GB  default   4.35s   samples\n958gb\049-et_EE.wav
+
+Finnish  (language id 9)
+    Nokia 5320     female    4.40s   samples\5320\009-fi_FI-female.wav
+    Nokia 5320     male      4.10s   samples\5320\009-fi_FI-male.wav
+    Nokia E65      default   4.10s   samples\e65\009-fi_FI.wav
+    Nokia N95 8GB  default   4.10s   samples\n958gb\009-fi_FI.wav
+
+French  (language id 2)
+    Nokia 5320     female    4.50s   samples\5320\002-fr_FR-female.wav
+    Nokia 5320     male      4.50s   samples\5320\002-fr_FR-male.wav
+    Nokia E65      default   4.60s   samples\e65\002-fr_FR.wav
+    Nokia N95 8GB  default   4.50s   samples\n958gb\002-fr_FR.wav
+
+French (Canada)  (language id 51)
+    Nokia 6650     female    5.40s   samples\6650\051-fr_CA-female.wav
+    Nokia 6650     male      5.40s   samples\6650\051-fr_CA-male.wav
+
+Galician  (language id 402)
+    Nokia 5320     female    4.10s   samples\5320\402-gl_ES-female.wav
+    Nokia 5320     male      4.10s   samples\5320\402-gl_ES-male.wav
+
+German  (language id 3)
+    Nokia 5320     female    4.65s   samples\5320\003-de_DE-female.wav
+    Nokia 5320     male      4.40s   samples\5320\003-de_DE-male.wav
+    Nokia E65      default   4.25s   samples\e65\003-de_DE.wav
+    Nokia N95 8GB  default   4.40s   samples\n958gb\003-de_DE.wav
+
+Greek  (language id 54)
+    Nokia 5320     female    3.95s   samples\5320\054-el_GR-female.wav
+    Nokia 5320     male      3.95s   samples\5320\054-el_GR-male.wav
+    Nokia E65      default   4.00s   samples\e65\054-el_GR.wav
+    Nokia N95 8GB  default   4.45s   samples\n958gb\054-el_GR.wav
+
+Hebrew  (language id 57)
+    Nokia 5320     female    3.75s   samples\5320\057-he_IL-female.wav
+    Nokia 5320     male      3.75s   samples\5320\057-he_IL-male.wav
+    Nokia E65      default   3.75s   samples\e65\057-he_IL.wav
+    Nokia N95 8GB  default   3.75s   samples\n958gb\057-he_IL.wav
+
+Hungarian  (language id 17)
+    Nokia 5320     female    4.75s   samples\5320\017-hu_HU-female.wav
+    Nokia 5320     male      4.50s   samples\5320\017-hu_HU-male.wav
+    Nokia E65      default   4.40s   samples\e65\017-hu_HU.wav
+    Nokia N95 8GB  default   4.40s   samples\n958gb\017-hu_HU.wav
+
+Icelandic  (language id 15)
+    Nokia 5320     female    4.15s   samples\5320\015-is_IS-female.wav
+    Nokia 5320     male      4.15s   samples\5320\015-is_IS-male.wav
+    Nokia E65      default   4.15s   samples\e65\015-is_IS.wav
+    Nokia N95 8GB  default   4.15s   samples\n958gb\015-is_IS.wav
+
+Italian  (language id 5)
+    Nokia 5320     female    4.55s   samples\5320\005-it_IT-female.wav
+    Nokia 5320     male      4.55s   samples\5320\005-it_IT-male.wav
+    Nokia E65      default   4.55s   samples\e65\005-it_IT.wav
+    Nokia N95 8GB  default   4.55s   samples\n958gb\005-it_IT.wav
+
+Latvian  (language id 67)
+    Nokia 5320     female    5.00s   samples\5320\067-lv_LV-female.wav
+    Nokia 5320     male      4.65s   samples\5320\067-lv_LV-male.wav
+    Nokia E65      default   4.65s   samples\e65\067-lv_LV.wav
+    Nokia N95 8GB  default   4.65s   samples\n958gb\067-lv_LV.wav
+
+Lithuanian  (language id 68)
+    Nokia 5320     female    5.05s   samples\5320\068-lt_LT-female.wav
+    Nokia 5320     male      4.65s   samples\5320\068-lt_LT-male.wav
+    Nokia E65      default   4.65s   samples\e65\068-lt_LT.wav
+    Nokia N95 8GB  default   4.65s   samples\n958gb\068-lt_LT.wav
+
+Norwegian  (language id 8)
+    Nokia 5320     female    4.40s   samples\5320\008-nb_NO-female.wav
+    Nokia 5320     male      4.40s   samples\5320\008-nb_NO-male.wav
+    Nokia E65      default   4.30s   samples\e65\008-nb_NO.wav
+    Nokia N95 8GB  default   4.40s   samples\n958gb\008-nb_NO.wav
+
+Polish  (language id 27)
+    Nokia 5320     female    3.80s   samples\5320\027-pl_PL-female.wav
+    Nokia 5320     male      4.40s   samples\5320\027-pl_PL-male.wav
+    Nokia E65      default   4.05s   samples\e65\027-pl_PL.wav
+    Nokia N95 8GB  default   4.10s   samples\n958gb\027-pl_PL.wav
+
+Portuguese  (language id 13)
+    Nokia 5320     female    4.25s   samples\5320\013-pt_PT-female.wav
+    Nokia 5320     male      4.25s   samples\5320\013-pt_PT-male.wav
+    Nokia E65      default   4.15s   samples\e65\013-pt_PT.wav
+    Nokia N95 8GB  default   4.25s   samples\n958gb\013-pt_PT.wav
+
+Portuguese (Brazil)  (language id 76)
+    Nokia 6650     female    5.15s   samples\6650\076-pt_BR-female.wav
+    Nokia 6650     male      4.95s   samples\6650\076-pt_BR-male.wav
+
+Romanian  (language id 78)
+    Nokia 5320     female    4.10s   samples\5320\078-ro_RO-female.wav
+    Nokia 5320     male      4.70s   samples\5320\078-ro_RO-male.wav
+    Nokia E65      default   4.40s   samples\e65\078-ro_RO.wav
+    Nokia N95 8GB  default   4.40s   samples\n958gb\078-ro_RO.wav
+
+Russian  (language id 16)
+    Nokia 5320     female    3.90s   samples\5320\016-ru_RU-female.wav
+    Nokia 5320     male      4.40s   samples\5320\016-ru_RU-male.wav
+    Nokia E65      default   4.20s   samples\e65\016-ru_RU.wav
+    Nokia N95 8GB  default   4.20s   samples\n958gb\016-ru_RU.wav
+
+Serbian  (language id 79)
+    Nokia 5320     female    3.45s   samples\5320\079-sr_RS-female.wav
+    Nokia 5320     male      3.95s   samples\5320\079-sr_RS-male.wav
+    Nokia E65      default   3.70s   samples\e65\079-sr_RS.wav
+    Nokia N95 8GB  default   3.70s   samples\n958gb\079-sr_RS.wav
+
+Slovak  (language id 26)
+    Nokia 5320     female    4.80s   samples\5320\026-sk_SK-female.wav
+    Nokia 5320     male      4.80s   samples\5320\026-sk_SK-male.wav
+    Nokia E65      default   4.80s   samples\e65\026-sk_SK.wav
+    Nokia N95 8GB  default   4.80s   samples\n958gb\026-sk_SK.wav
+
+Slovenian  (language id 28)
+    Nokia 5320     female    3.90s   samples\5320\028-sl_SI-female.wav
+    Nokia 5320     male      4.20s   samples\5320\028-sl_SI-male.wav
+    Nokia E65      default   4.20s   samples\e65\028-sl_SI.wav
+    Nokia N95 8GB  default   4.20s   samples\n958gb\028-sl_SI.wav
+
+Spanish  (language id 4)
+    Nokia 5320     female    4.05s   samples\5320\004-es_ES-female.wav
+    Nokia 5320     male      4.05s   samples\5320\004-es_ES-male.wav
+    Nokia E65      default   4.25s   samples\e65\004-es_ES.wav
+    Nokia N95 8GB  default   4.05s   samples\n958gb\004-es_ES.wav
+
+Spanish (Latin America)  (language id 83)
+    Nokia 6650     female    5.55s   samples\6650\083-es_419-female.wav
+    Nokia 6650     male      5.55s   samples\6650\083-es_419-male.wav
+
+Swedish  (language id 6)
+    Nokia 5320     female    4.15s   samples\5320\006-sv_SE-female.wav
+    Nokia 5320     male      4.15s   samples\5320\006-sv_SE-male.wav
+    Nokia E65      default   4.15s   samples\e65\006-sv_SE.wav
+    Nokia N95 8GB  default   4.15s   samples\n958gb\006-sv_SE.wav
+
+Tagalog  (language id 39)
+    Nokia N85      female    5.25s   samples\n85\039-tl_PH-female.wav
+    Nokia N85      male      5.25s   samples\n85\039-tl_PH-male.wav
+
+Turkish  (language id 14)
+    Nokia 5320     female    5.00s   samples\5320\014-tr_TR-female.wav
+    Nokia 5320     male      5.75s   samples\5320\014-tr_TR-male.wav
+    Nokia E65      default   5.75s   samples\e65\014-tr_TR.wav
+    Nokia N95 8GB  default   5.75s   samples\n958gb\014-tr_TR.wav
+
+Ukrainian  (language id 93)
+    Nokia 5320     female    3.95s   samples\5320\093-uk_UA-female.wav
+    Nokia 5320     male      4.55s   samples\5320\093-uk_UA-male.wav
+    Nokia E65      default   4.20s   samples\e65\093-uk_UA.wav
+    Nokia N95 8GB  default   4.25s   samples\n958gb\093-uk_UA.wav
+
+Vietnamese  (language id 96)
+    Nokia N85      female    7.10s   samples\n85\096-vi_VN-female.wav
+    Nokia N85      male      7.10s   samples\n85\096-vi_VN-male.wav
+
+------------------------------------------------------------
+138 samples, 10.2 minutes of speech in total.
+
+Builds:
+    Nokia 5320      66 voices, 33 languages   Nokia 5320 XpressMusic
+    Nokia 6650       8 voices,  4 languages   Nokia 6650 Fold
+    Nokia E65       30 voices, 30 languages   Nokia E65
+    Nokia N85        4 voices,  2 languages   Nokia N85
+    Nokia N95 8GB   30 voices, 30 languages   Nokia N95 8GB

@@ -1,0 +1,111 @@
+#include <windows.h>
+#include "resource.h"
+
+// Every control is preceded in the tab order by its own label, and every
+// numeric setting is a drop-down list rather than a slider: a trackbar
+// reports its value to MSAA as a percentage, so a "1 of 9" setting is
+// announced as "11" and a screen reader user cannot tell where they are.
+
+IDD_CONFIG DIALOGEX 0, 0, 400, 316
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Nokia Klatt Speech Settings"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Custom voice", -1, 7, 4, 386, 46
+
+    LTEXT           "&Voice this is built on:", IDC_LBL_VOICE, 14, 18, 96, 9
+    COMBOBOX        IDC_VOICE, 114, 16, 270, 200,
+                    CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL |
+                    WS_TABSTOP | WS_GROUP
+
+    LTEXT           "Voice &bank:", IDC_LBL_BANK, 14, 34, 96, 9
+    COMBOBOX        IDC_BANK, 114, 32, 270, 200,
+                    CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+
+    GROUPBOX        "Speech", -1, 7, 54, 386, 90
+
+    LTEXT           "&Speed:", IDC_LBL_RATE, 14, 68, 96, 9
+    COMBOBOX        IDC_RATE, 114, 66, 150, 200,
+                    CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "Speed step si&ze:", IDC_LBL_RATESTEP, 14, 84, 96, 9
+    COMBOBOX        IDC_RATESTEP, 114, 82, 150, 200,
+                    CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "&Pitch:", IDC_LBL_PITCH, 14, 100, 96, 9
+    COMBOBOX        IDC_PITCH, 114, 98, 150, 200,
+                    CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "Pitch &increment:", IDC_LBL_PITCHSTEP, 14, 116, 96, 9
+    COMBOBOX        IDC_PITCHSTEP, 114, 114, 150, 200,
+                    CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "V&olume:", IDC_LBL_VOLUME, 14, 132, 96, 9
+    COMBOBOX        IDC_VOLUME, 114, 130, 150, 200,
+                    CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+
+    GROUPBOX        "Responsiveness", -1, 7, 148, 386, 76
+
+    LTEXT           "&Audio buffer:", IDC_LBL_BUFFER, 14, 162, 96, 9
+    COMBOBOX        IDC_BUFFER, 114, 160, 150, 200,
+                    CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "&Warm engines kept ready:", IDC_LBL_CACHE, 14, 178, 96, 18
+    COMBOBOX        IDC_CACHE, 114, 176, 150, 200,
+                    CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+
+    AUTOCHECKBOX    "T&rim the silence before each utterance", IDC_TRIM,
+                    14, 196, 250, 10, WS_TABSTOP
+
+    LTEXT           "&Extra silence after speech:", IDC_LBL_TRAILING,
+                    14, 210, 96, 9
+    COMBOBOX        IDC_TRAILING, 114, 208, 150, 200,
+                    CBS_DROPDOWNLIST | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+
+    GROUPBOX        "Try it out", -1, 7, 228, 386, 40
+
+    LTEXT           "Sample te&xt:", IDC_LBL_TESTTEXT, 14, 242, 96, 9
+    EDITTEXT        IDC_TESTTEXT, 114, 240, 190, 14, ES_AUTOHSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Test voice", IDC_TEST, 312, 239, 72, 16, WS_TABSTOP
+
+    AUTOCHECKBOX    "Write a &detailed log file for troubleshooting",
+                    IDC_LOGGING, 14, 274, 250, 10, WS_TABSTOP
+    PUSHBUTTON      "Open &log folder", IDC_OPENLOG, 272, 271, 112, 16,
+                    WS_TABSTOP
+
+    LTEXT           "", IDC_STATUS, 7, 292, 200, 18, SS_LEFTNOWORDWRAP
+
+    PUSHBUTTON      "Restore de&faults", IDC_DEFAULTS, 210, 294, 72, 16,
+                    WS_TABSTOP
+    DEFPUSHBUTTON   "OK", IDOK, 288, 294, 50, 16, WS_TABSTOP
+    PUSHBUTTON      "Cancel", IDCANCEL, 343, 294, 50, 16, WS_TABSTOP
+END
+
+IDI_APP ICON "nk_config.ico"
+
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION 1,0,0,0
+    PRODUCTVERSION 1,0,0,0
+    FILEFLAGSMASK 0x3fL
+    FILEFLAGS 0x0L
+    FILEOS VOS_NT_WINDOWS32
+    FILETYPE VFT_APP
+    FILESUBTYPE VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "FileDescription", "Nokia Klatt Speech Settings"
+            VALUE "FileVersion", "1.0.0.0"
+            VALUE "InternalName", "NokiaKlattConfig"
+            VALUE "OriginalFilename", "NokiaKlattConfig.exe"
+            VALUE "ProductName", "Nokia Klatt SAPI5"
+            VALUE "ProductVersion", "1.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END

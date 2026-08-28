@@ -1,0 +1,30 @@
+# Build output
+build/
+dist/
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.user
+*.suo
+.vs/
+
+# Phone firmware and the Python reference implementation.
+#
+# Two of the ROM images are over 50 MB, and firmware committed to git cannot be
+# taken back out without rewriting history. They ship inside the release
+# installer instead; see the "Building from source" section of the README for
+# the layout the build expects here.
+bin/
+
+# Output of tools/verify_port.py, which re-renders every voice with the C++
+# engine to diff against the Python one.
+samples-cpp/
+
+# The previous project's SAPI wrapper, kept locally for reference.
+legacy-bestspeech/
+
+# Python bytecode from the test harnesses
+__pycache__/
+*.py[cod]
