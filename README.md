@@ -31,7 +31,7 @@ as a component inside phone firmware images, was never ported to the desktop,
 and has had no vendor, no updates, and no support for well over a decade. There
 is no official download and no one left to ask.
 
-Being abandoned is not the same as being public domain. The firmware is still
+Being abandoned does not make it free to use. The firmware is still
 Nokia's copyrighted work. Nothing here is a grant of rights to it; the ROM
 images are redistributed on the same footing as every other Symbian firmware
 archive that has been circulating for years, because without them the engine
